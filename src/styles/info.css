@@ -1,0 +1,20 @@
+.info-container > * {
+  padding: 0 1rem;
+}
+
+.info-container h2 {
+  /* text-decoration: underline; */
+  position: relative;
+}
+
+.info-container h2::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: #000;
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  transform: translateY(-50%) rotate(90deg);
+  border-radius: 50% 50% 0 0;
+}

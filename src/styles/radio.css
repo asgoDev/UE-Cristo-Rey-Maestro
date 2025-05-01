@@ -1,0 +1,19 @@
+.complex-input__radio-fieldset {
+  padding: 0.3rem 0.7rem;
+  min-width: max-content;
+  border-radius: var(--input-radius);
+}
+
+.complex-input__radio-label {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.complex-input__radio {
+  margin-right: 0.3rem;
+  vertical-align: middle;
+}
+
+.complex-input__radio-title {
+  vertical-align: middle;
+}

@@ -1,0 +1,44 @@
+.complex-input-label {
+  position: relative;
+  flex-basis: 20%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.complex-input-label__title {
+  margin-left: 0.3rem;
+  font-size: 0.8rem;
+  font-family: "Raleway", sans-serif;
+  transform: translateY(120%);
+  transition: transform 0.3s ease;
+}
+
+.fg-2 {
+  flex-shrink: 0;
+}
+
+.t-translate-0 {
+  transform: translate(0);
+}
+
+.required::after {
+  content: "*";
+  font-size: 1.5rem;
+  color: red;
+
+  position: absolute;
+  top: 5px;
+  right: -10px;
+  z-index: 3;
+}
+
+@media (max-width: 575px) {
+  .complex-input-label:has(select) {
+    flex-basis: 200px;
+    width: 150px;
+    overflow: hidden;
+  }
+}

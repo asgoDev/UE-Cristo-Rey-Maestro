@@ -1,0 +1,7 @@
+@media (max-width: 575px) {
+  .location-select__label {
+    flex-basis: 200px;
+    width: 150px;
+    overflow: hidden;
+  }
+}

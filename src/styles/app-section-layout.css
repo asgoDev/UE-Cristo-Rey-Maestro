@@ -1,0 +1,27 @@
+.app-section {
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem;
+  flex-grow: 1;
+  /* margin: auto; */
+  /* justify-self: center; */
+  display: flex;
+  flex-direction: column;
+}
+
+.app-section__title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.app-section__main {
+  flex-grow: 1;
+  position: relative;
+}
+
+@media (max-width: 480px) {
+  .app-section {
+    padding: 1.2rem 1rem;
+  }
+}
