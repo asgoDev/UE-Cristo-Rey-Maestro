@@ -71,13 +71,12 @@
 
 .form__advise {
   font-size: .7rem;
+  line-height: .7rem;
   text-align: right;
-  transform: translateY(-.8rem);
   margin-right: 1rem;
 }
 
 .form__advise-span {
-  line-height: .8rem;
   font-size: 1.5rem;
   vertical-align: sub;
   color: red;

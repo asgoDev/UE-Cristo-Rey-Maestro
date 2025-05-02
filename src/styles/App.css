@@ -2,3 +2,12 @@
   background: var(--bg-color);
 }
 
+.single-button {
+  background: var(--principal-color);
+  color: var(--bg-color);
+  width: fit-content;
+  margin: auto;
+  display: block;
+  padding: .5rem 1rem;
+  margin-top: 1rem;
+}

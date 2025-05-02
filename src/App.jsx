@@ -1,6 +1,7 @@
 import './styles/App.css'
 import AppBodyLayout from './AppBodyLayout'
 import FormularioEntrevista from './components/FormularioEntrevista'
+import PlanillaEntrevistaPreview from './components/PlanillaEntrevistaPreview'
 import { Route, Routes } from 'react-router-dom'
 import Welcome from './components/Welcome'
 import DocPreView from './components/DocPreView'
@@ -14,6 +15,10 @@ function App() {
         <Route
           path="/UE-Cristo-Rey-Maestro/formulario-entrevista"
           element={<FormularioEntrevista />}
+        />
+        <Route
+          path="/UE-Cristo-Rey-Maestro/planilla-entrevista"
+          element={<PlanillaEntrevistaPreview />}
         />
         <Route path="*" element={<Welcome />} />
       </Routes>

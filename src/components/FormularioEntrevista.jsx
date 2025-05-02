@@ -31,7 +31,7 @@ function FormularioEntrevista() {
     setFormData(formDataObject)
     console.log(formDataObject)
 
-    // navigate('/SICADMIL/preview')
+    navigate('/UE-Cristo-Rey-Maestro/planilla-entrevista')
   }
 
   const handleSteps = (e) => {

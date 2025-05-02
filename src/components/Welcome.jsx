@@ -20,7 +20,10 @@ function Welcome() {
 
       <br />
       <p>Haga click en el botón de abajo para comenzar.</p>
-      <Link to="/UE-Cristo-Rey-Maestro/formulario-entrevista">
+      <Link
+        className="single-button"
+        to="/UE-Cristo-Rey-Maestro/formulario-entrevista"
+      >
         Ir al Formulario
       </Link>
     </AppSectionLayout>
