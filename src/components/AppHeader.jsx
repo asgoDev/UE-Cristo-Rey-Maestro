@@ -24,7 +24,7 @@ function AppHeader() {
         </div>
         <div className="app-header__title-container">
           <span className="app-header__title">
-            U. E Colegio Cristo, Rey y Maestro
+            U. E Colegio &quot;Cristo, Rey y Maestro&quot;
           </span>
           <span className="app-header__title-span">
             Educando para transformar

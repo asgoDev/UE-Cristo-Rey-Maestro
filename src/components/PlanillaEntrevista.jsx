@@ -13,22 +13,28 @@ import logo from '../assets/insignia cristo rey.png'
 // Estilos
 const styles = StyleSheet.create({
   page: {
-    paddingTop: 100,
+    paddingTop: 90,
     paddingBottom: 40,
     paddingHorizontal: 50,
-    fontSize: 14,
+    fontSize: 10,
+    textTransform: 'uppercase',
   },
   section: { marginBottom: 15 },
-  sectionTitle: { fontSize: 14, fontWeight: 'bold', marginBottom: 10 },
+  sectionTitle: {
+    fontSize: '1rem',
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
   sectionContent: { borderWidth: 1, borderColor: '#000', padding: '10px 14px' },
 
   fieldset: {
     marginBottom: 10,
   },
   fieldsetTitle: {
-    fontSize: 12,
+    fontSize: '1rem',
     fontWeight: 'bold',
     marginBottom: 5,
+    textDecoration: 'underline',
   },
   fieldsetContent: {
     display: 'flex',
@@ -37,9 +43,9 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     padding: '0 10px',
   },
-  text: { fontSize: 12 },
-  value: { textTransform: 'capitalize' },
-  label: { fontWeight: 'bold' },
+  text: { fontSize: '1rem' },
+  value: { textTransform: 'uppercase' },
+  label: { fontWeight: 'bold', textTransform: 'uppercase' },
   image: {
     height: 50,
     width: 50,
@@ -76,7 +82,7 @@ const Header = () => (
         display: 'flex',
         flexDirection: 'row',
         gap: 10,
-        fontSize: 12,
+        fontSize: '1rem',
         fontWeight: 'bold',
       }}
     >
@@ -105,6 +111,7 @@ const Footer = ({ pageNumber }) => (
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
+      fontSize: '1rem',
     }}
   >
     <Text
@@ -115,7 +122,7 @@ const Footer = ({ pageNumber }) => (
         paddingBottom: 30,
         textTransform: 'uppercase',
         fontWeight: 'bold',
-        fontSize: 12,
+        // fontSize: '1rem',
         flexGrow: 1,
       }}
     >
@@ -123,7 +130,7 @@ const Footer = ({ pageNumber }) => (
     </Text>
     <Text
       style={{
-        fontSize: 12,
+        // fontSize: 12,
         paddingTop: 10,
         paddingBottom: 30,
         borderTop: '1px solid #000',
@@ -151,7 +158,7 @@ const Fieldset = ({ title, children }) => (
 const Item = ({ label, value }) => (
   <Text style={styles.text}>
     <Text style={styles.label}>{label}: </Text>
-    <Text style={styles.value}>{value ? value : '____'}</Text>
+    <Text style={styles.value}>{value ? value : '_____________'}</Text>
   </Text>
 )
 
@@ -160,6 +167,28 @@ const PlanillaEntrevista = ({ data = {} }) => (
   <Document>
     <PageTemplate pageNumber={1}>
       {/* Información del Estudiante */}
+      <Text
+        style={{
+          fontWeight: 'bold',
+          marginBottom: 5,
+          fontSize: '1.2rem',
+          textAlign: 'center',
+          textDecoration: 'underline',
+        }}
+      >
+        Planilla de Entrevista
+      </Text>
+      <Text
+        style={{
+          textAlign: 'right',
+          fontSize: '10px',
+          marginRight: 50,
+          paddingTop: 10,
+          paddingBottom: 10,
+        }}
+      >
+        Nro de Control:
+      </Text>
       <Section title="1. Información del Estudiante">
         <Fieldset title="Datos Personales">
           <Item label="Nombres" value={data.nombres} />
@@ -168,8 +197,8 @@ const PlanillaEntrevista = ({ data = {} }) => (
           <Item label="Edad" value={data.edad} />
           <Item label="Sexo" value={data.sexo} />
           <Item
-            label="Teléfono del representante"
-            value={data.telefonoRepresentante}
+            label="Lugar de Nacimiento"
+            value={`${data.ciudadNacimiento}, parroquia ${data.parroquiaNacimiento}, municipio ${data.municipioNacimiento}, estado ${data.estadoNacimiento}. ${data.paisNacimiento}`}
           />
         </Fieldset>
 
@@ -180,31 +209,33 @@ const PlanillaEntrevista = ({ data = {} }) => (
             label="Institución de procedencia"
             value={data.institucionProcedencia}
           />
-          <Item
-            label="Dependencia económica"
-            value={data.dependenciaEconomica}
-          />
         </Fieldset>
 
+        <Fieldset title="Información Médica">
+          <Item label="Peso" value={`${data.peso} kg`} />
+          <Item label="Tipo de sangre" value={data.tipoSangre} />
+          <Item label="Alérgico" value={data.alergico} />
+          {data.alergico == 'Sí' && (
+            <Item label="Alérgico a" value={data.alergicoA} />
+          )}
+          <Item label="Discapacidad" value={data.discapacidad} />
+          {data.discapacidad !== 'Ninguna' && (
+            <Item
+              label="Especifique discapacidad"
+              value={data.discapacidadEspecial}
+            />
+          )}
+          <Item label="Informe médico" value={data.informeMedico} />
+          <Item label="Médico tratante" value={data.medicoTratante} />
+          <Item
+            label="Toma algún medicamento"
+            value={data.tomaMedicamento || 'no'}
+          />
+        </Fieldset>
         <Fieldset title="Tallas">
           <Item label="Camisa" value={data.tallaCamisa} />
           <Item label="Pantalón" value={data.tallaPantalon} />
           <Item label="Calzado" value={data.tallaCalzado} />
-        </Fieldset>
-
-        <Fieldset title="Información Médica">
-          <Item label="Peso" value={data.peso} />
-          <Item label="Tipo de sangre" value={data.tipoSangre} />
-          <Item label="Alérgico" value={data.alergico} />
-          <Item label="Alérgico a" value={data.alergicoA} />
-          <Item label="Discapacidad" value={data.discapacidad} />
-          <Item
-            label="Especifique discapacidad"
-            value={data.discapacidadEspecial}
-          />
-          <Item label="Informe médico" value={data.informeMedico} />
-          <Item label="Médico tratante" value={data.medicoTratante} />
-          <Item label="Toma algún medicamento" value={data.tomaMedicamento} />
         </Fieldset>
       </Section>
       {/* Datos del Representante */}
@@ -214,16 +245,16 @@ const PlanillaEntrevista = ({ data = {} }) => (
           <Item label="Nombre" value={data.nombrePadre} />
           <Item label="Grado de instrucción" value={data.instruccionPadre} />
           <Item label="Teléfono" value={data.telefonoPadre} />
-          <Item label="Lugar de trabajo" value={data.trabajoPadre} />
-          <Item label="Tipo" value={data.tipoTrabajoPadre} />
+          <Item label="Lugar de trabajo" value={data.trabajoPadre || 'No'} />
+          <Item label="Tipo" value={data.tipoTrabajoPadre || 'No aplica'} />
         </Fieldset>
         <Fieldset title="Madre">
           <Item label="Cédula" value={data.cedulaMadre} />
           <Item label="Nombre" value={data.nombreMadre} />
           <Item label="Grado de instrucción" value={data.instruccionMadre} />
           <Item label="Teléfono" value={data.telefonoMadre} />
-          <Item label="Lugar de trabajo" value={data.trabajoMadre} />
-          <Item label="Tipo" value={data.tipoTrabajoMadre} />
+          <Item label="Lugar de trabajo" value={data.trabajoMadre || 'No'} />
+          <Item label="Tipo" value={data.tipoTrabajoMadre || 'No aplica'} />
         </Fieldset>
       </Section>
 
@@ -243,14 +274,18 @@ const PlanillaEntrevista = ({ data = {} }) => (
       {/* Gastos Mensuales */}
       <Section title="4. Gastos Mensuales">
         <Fieldset title="Economía Familiar">
-          <Item label="Alimentación" value={data.alimentacion} />
-          <Item label="Educación" value={data.educacion} />
-          <Item label="Renta" value={data.renta} />
-          <Item label="Luz" value={data.luz} />
-          <Item label="Agua" value={data.agua} />
-          <Item label="Medicina" value={data.medicina} />
-          <Item label="Total Ingresos" value={data.ingresos} />
-          <Item label="Total Egresos" value={data.egresos} />
+          <Item
+            label="Dependencia económica"
+            value={data.dependenciaEconomica}
+          />
+          <Item label="Alimentación" value={`${data.alimentacion} Bs. D`} />
+          <Item label="Educación" value={`${data.educacion} Bs. D`} />
+          <Item label="Renta" value={`${data.renta} Bs. D`} />
+          <Item label="Luz" value={`${data.luz} Bs. D`} />
+          <Item label="Agua" value={`${data.agua} Bs. D`} />
+          <Item label="Medicina" value={`${data.medicina} Bs. D`} />
+          <Item label="Total Ingresos" value={`${data.ingresos} Bs. D`} />
+          <Item label="Total Egresos" value={`${data.egresos} Bs. D`} />
         </Fieldset>
       </Section>
 

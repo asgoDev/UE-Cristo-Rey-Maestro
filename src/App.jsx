@@ -11,7 +11,8 @@ function App() {
   return (
     <AppBodyLayout>
       <Routes>
-        <Route path="UE-Cristo-Rey-Maestro" element={<Welcome />} />
+        <Route path="/" element={<Welcome />} />
+        <Route path="/UE-Cristo-Rey-Maestro" element={<Welcome />} />
         <Route
           path="/UE-Cristo-Rey-Maestro/formulario-entrevista"
           element={<FormularioEntrevista />}

@@ -4,10 +4,20 @@ const schoolRegistrationFormConfig = [
     title: '1.- Información del Estudiante',
     config: [
       {
-        fieldsetName: 'Datos Personales',
+        fieldsetName: 'Datos Personales del Estudiante',
         inputList: [
-          { id: 'nombres', label: 'Nombres', type: 'text', required: true },
-          { id: 'apellidos', label: 'Apellidos', type: 'text', required: true },
+          {
+            id: 'nombres',
+            label: 'Nombres del Estudiante',
+            type: 'text',
+            required: true,
+          },
+          {
+            id: 'apellidos',
+            label: 'Apellidos del Estudiante',
+            type: 'text',
+            required: true,
+          },
           {
             id: 'fechaNacimiento',
             label: 'Fecha de Nacimiento',
@@ -29,29 +39,60 @@ const schoolRegistrationFormConfig = [
             options: ['Masculino', 'Femenino'],
             required: true,
           },
-          // {
-          //   type: "location",
-          //   content: [
-          //     { id: "paisNacimiento", label: "País de Nacimiento", required: true },
-          //     { id: "estadoNacimiento", label: "Estado de Nacimiento", required: true }
-          //   ]
-          // },
+        ],
+      },
+      {
+        fieldsetName: 'Lugar de nacimiento del estudiante',
+        inputList: [
           {
-            id: 'telefonoRepresentante',
-            label: 'Teléfono del Representante',
-            type: 'tel',
+            type: 'location',
+            content: [
+              {
+                id: 'paisNacimiento',
+                label: 'País',
+                type: '',
+                title: 'Indique país de nacimiento',
+                required: true,
+              },
+              {
+                id: 'estadoNacimiento',
+                label: 'Estado',
+                type: '',
+                title: 'Indique estado del país donde nació',
+                required: true,
+              },
+              {
+                id: 'municipioNacimiento',
+                label: 'Municipio',
+                type: '',
+                title: ' Indique municipio del estado.',
+                required: true,
+              },
+              {
+                id: 'parroquiaNacimiento',
+                label: 'Parroquia',
+                type: '',
+                title:
+                  'Indique parroquia del municipio en que nació / o lo que aplica en el país de nacimiento.',
+                required: true,
+              },
+            ],
+          },
+          {
+            id: 'ciudadNacimiento',
+            label: 'Ciudad de Nacimiento',
+            type: 'text',
             required: true,
           },
         ],
       },
       {
-        fieldsetName: 'Datos Escolares',
+        fieldsetName: 'Datos Escolares del Estudiante',
         inputList: [
           {
             id: 'cedulaEscolar',
             label: 'Cédula Escolar',
             type: 'number',
-            required: true,
           },
           {
             id: 'gradoCursar',
@@ -66,36 +107,47 @@ const schoolRegistrationFormConfig = [
             type: 'text',
             required: true,
           },
+        ],
+      },
+      {
+        fieldsetName: 'Tallas del Estudiante',
+        inputList: [
+          { id: 'tallaCamisa', label: 'Camisa', type: 'text', required: true },
           {
-            id: 'dependenciaEconomica',
-            label: 'Dependencia Económica',
-            type: 'select',
-            options: ['Ambos padres', 'Padre', 'Madre', 'Hermanos', 'Otros'],
+            id: 'tallaPantalon',
+            label: 'Pantalón',
+            type: 'text',
+            required: true,
+          },
+          {
+            id: 'tallaCalzado',
+            label: 'Calzado',
+            type: 'number',
             required: true,
           },
         ],
       },
       {
-        fieldsetName: 'Tallas',
+        fieldsetName: 'Información Médica del Estudiante',
         inputList: [
-          { id: 'tallaCamisa', label: 'Camisa', type: 'text' },
-          { id: 'tallaPantalon', label: 'Pantalón', type: 'text' },
-          { id: 'tallaCalzado', label: 'Calzado', type: 'number' },
-        ],
-      },
-      {
-        fieldsetName: 'Información Médica',
-        inputList: [
-          { id: 'peso', label: 'Peso (kg)', type: 'number', min: 10, max: 100 },
+          {
+            id: 'peso',
+            label: 'Peso (kg)',
+            type: 'number',
+            min: 10,
+            max: 100,
+            required: true,
+          },
           {
             id: 'tipoSangre',
             label: 'Tipo de Sangre',
             type: 'select',
             options: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'],
+            required: true,
           },
           {
             id: 'alergico',
-            label: 'Alérgico',
+            label: '¿El estudiante es alérgico?',
             type: 'radio',
             options: ['Sí', 'No'],
             required: true,
@@ -108,7 +160,7 @@ const schoolRegistrationFormConfig = [
           },
           {
             id: 'discapacidad',
-            label: 'Discapacidad',
+            label: '¿Posee alguna discapacidad?',
             type: 'select',
             options: [
               'Visual',
@@ -119,6 +171,7 @@ const schoolRegistrationFormConfig = [
               'Motriz',
               'Ninguna',
             ],
+            required: true,
           },
           {
             id: 'discapacidadEspecial',
@@ -135,7 +188,7 @@ const schoolRegistrationFormConfig = [
           { id: 'medicoTratante', label: 'Médico Tratante', type: 'text' },
           {
             id: 'tomaMedicamento',
-            label: 'Toma algún medicamento',
+            label: 'Medicamento recetado',
             type: 'text',
           },
         ],
@@ -240,36 +293,39 @@ const schoolRegistrationFormConfig = [
             label: 'Con quién vive',
             type: 'select',
             options: ['Padres', 'Madre', 'Padre', 'Abuelos', 'Tíos', 'Otros'],
+            required: true,
           },
           {
             id: 'tipoVivienda',
             label: 'Tipo de Vivienda',
             type: 'select',
             options: ['Rancho', 'Casa', 'Quinta', 'Apartamento', 'Otro'],
+            required: true,
           },
           {
             id: 'tenenciaVivienda',
             label: 'Tenencia',
             type: 'select',
             options: ['Propia', 'Alquilada', 'Al cuido', 'Pagando'],
+            required: true,
           },
-          {
-            id: 'servicios',
-            label: 'Servicios Básicos',
-            type: 'checkbox',
-            options: [
-              'Agua',
-              'Luz',
-              'Gas',
-              'Aseo',
-              'Internet',
-              'Computadora',
-              'TV',
-              'Nevera',
-              'Lavadora',
-              'Aire acondicionado',
-            ],
-          },
+          // {
+          //   id: 'servicios',
+          //   label: 'Servicios Básicos',
+          //   type: 'checkbox',
+          //   options: [
+          //     'Agua',
+          //     'Luz',
+          //     'Gas',
+          //     'Aseo',
+          //     'Internet',
+          //     'Computadora',
+          //     'TV',
+          //     'Nevera',
+          //     'Lavadora',
+          //     'Aire acondicionado',
+          //   ],
+          // },
         ],
       },
     ],
@@ -282,28 +338,66 @@ const schoolRegistrationFormConfig = [
         fieldsetName: 'Economía Familiar',
         inputList: [
           {
-            id: 'alimentacion',
-            label: 'Alimentación',
-            type: 'number',
-            prefix: '$',
+            id: 'dependenciaEconomica',
+            label: 'Dependencia Económica',
+            type: 'select',
+            options: [
+              'Ambos padres',
+              'Padre',
+              'Madre',
+              'Hermanos',
+              'Tios',
+              'Abuelos',
+              'Otros',
+            ],
+            required: true,
           },
-          { id: 'educacion', label: 'Educación', type: 'number', prefix: '$' },
-          { id: 'renta', label: 'Renta', type: 'number', prefix: '$' },
-          { id: 'luz', label: 'Luz', type: 'number', prefix: '$' },
-          { id: 'agua', label: 'Agua', type: 'number', prefix: '$' },
-          { id: 'medicina', label: 'Medicina', type: 'number', prefix: '$' },
+          {
+            id: 'alimentacion',
+            label: 'Presupuesto de Alimentación',
+            type: 'number',
+            required: true,
+          },
+          {
+            id: 'educacion',
+            label: 'Presupuesto de Educación',
+            type: 'number',
+            required: true,
+          },
+          {
+            id: 'renta',
+            label: 'Presupuesto de Renta',
+            type: 'number',
+            required: true,
+          },
+          {
+            id: 'luz',
+            label: 'Presupuesto de Luz',
+            type: 'number',
+            required: true,
+          },
+          {
+            id: 'agua',
+            label: 'Presupuesto de Agua',
+            type: 'number',
+            required: true,
+          },
+          {
+            id: 'medicina',
+            label: 'Presupuesto de Medicina',
+            type: 'number',
+            required: true,
+          },
           {
             id: 'ingresos',
             label: 'Total Ingresos',
             type: 'number',
-            prefix: '$',
             required: true,
           },
           {
             id: 'egresos',
             label: 'Total Egresos',
             type: 'number',
-            prefix: '$',
             required: true,
           },
         ],
