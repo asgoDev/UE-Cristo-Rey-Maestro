@@ -26,6 +26,13 @@ function FormularioEntrevista() {
         formDataObject[key] = formData['picture']
         continue // evita cambiar la imagen en formData si no se ha añadido una nueva en en InputFile
       }
+      if (key == 'servicios') {
+        if (!Array.isArray(formDataObject[key])) {
+          formDataObject[key] = []
+        }
+        formDataObject[key].push(value)
+        continue // evita cambiar la imagen en formData si no se ha añadido una nueva en en InputFile
+      }
       formDataObject[key] = value
     }
     setFormData(formDataObject)

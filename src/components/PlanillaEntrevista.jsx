@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
     padding: '0 10px',
   },
   text: { fontSize: '1rem' },
+  check: { fontSize: '1rem', marginBottom: 5 },
   value: { textTransform: 'uppercase' },
   label: { fontWeight: 'bold', textTransform: 'uppercase' },
   image: {
@@ -161,6 +162,36 @@ const Item = ({ label, value }) => (
     <Text style={styles.value}>{value ? value : '_____________'}</Text>
   </Text>
 )
+const ItemCheck = ({ label, value }) => (
+  <Text style={styles.check}>
+    <Text style={styles.label}>{label}: </Text>
+    <Text style={styles.value}>{value ? value : '_____________'}</Text>
+  </Text>
+)
+const servicesList = (services) => {
+  const servicesArray = [
+    'Agua',
+    'Luz',
+    'Gas',
+    'Aseo',
+    'Internet',
+    'Computadora',
+    'TV',
+    'Nevera',
+    'Lavadora',
+    'Aire acondicionado',
+  ]
+  if (Array.isArray(services)) {
+    return servicesArray.map((serviceLabel, i) => (
+      <ItemCheck
+        key={i}
+        label={serviceLabel}
+        value={services.includes(serviceLabel) ? 'Sí   ' : 'No   '}
+      />
+    ))
+  }
+  return <Text style={styles.value}>{services}</Text>
+}
 
 // Documento PDF
 const PlanillaEntrevista = ({ data = {} }) => (
@@ -265,7 +296,10 @@ const PlanillaEntrevista = ({ data = {} }) => (
           <Item label="Con quién vive" value={data.convivencia} />
           <Item label="Tipo de vivienda" value={data.tipoVivienda} />
           <Item label="Tenencia de vivienda" value={data.tenenciaVivienda} />
-          <Item label="Servicios básicos" value={data.servicios} />
+          <Text style={styles.text}>
+            <Text style={styles.label}>Servicios Publicos: </Text>
+            {servicesList(data.servicios)}
+          </Text>
         </Fieldset>
       </Section>
     </PageTemplate>

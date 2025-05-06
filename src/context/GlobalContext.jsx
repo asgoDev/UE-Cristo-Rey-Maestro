@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from "react";
-import { createContext } from "react";
+import { useEffect, useState } from 'react'
+import { createContext } from 'react'
 
-export const GlobalContext = createContext();
+export const GlobalContext = createContext()
 
 const checkImportantInput = (inputsObj) => {
-  if (!inputsObj) return;
-  let values = Object.values(inputsObj);
-  return values.every((element) => element);
-};
+  if (!inputsObj) return
+  let values = Object.values(inputsObj)
+  return values.every((element) => element)
+}
 
 function GlobalContextProvider(props) {
-  const [requiredInputs, setRequiredInputs] = useState({});
-  const [isAllInputOk, setIsAllInputOk] = useState(false);
-  const [formData, setFormData] = useState({});
+  const [requiredInputs, setRequiredInputs] = useState({})
+  const [isAllInputOk, setIsAllInputOk] = useState(false)
+  const [formData, setFormData] = useState({})
 
   useEffect(() => {
-    setIsAllInputOk(checkImportantInput(requiredInputs));
-  }, [requiredInputs]);
+    setIsAllInputOk(checkImportantInput(requiredInputs))
+  }, [requiredInputs])
 
   return (
     <GlobalContext.Provider
@@ -30,7 +30,7 @@ function GlobalContextProvider(props) {
     >
       {props.children}
     </GlobalContext.Provider>
-  );
+  )
 }
 
-export default GlobalContextProvider;
+export default GlobalContextProvider

@@ -1,0 +1,23 @@
+.complex-input__checkbox-fieldset {
+  padding: 0.3rem 0.7rem;
+  min-width: 250px;
+  border-radius: var(--input-radius);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.complex-input__checkbox-label {
+  /* display: inline-block;
+  margin-right: 1rem; */
+}
+
+.complex-input__checkbox {
+  margin-left: 0.2rem;
+  vertical-align: middle;
+  accent-color: var(--principal-color);
+}
+
+.complex-input__checkbox-title {
+  vertical-align: middle;
+}
