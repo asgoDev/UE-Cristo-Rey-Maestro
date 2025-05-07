@@ -9,7 +9,7 @@ import InputFile from './InputFile'
 
 function ComplexInput() {
   const { inputConfig, inputState } = useContext(ComplexInputContext)
-  const { required, title, id, type, label } = inputConfig
+  const { required, title, type, id, label } = inputConfig
   const [inputValue] = inputState
 
   const chooseElement = () => {
@@ -32,6 +32,7 @@ function ComplexInput() {
             type == 'date' ||
             type == 'select' ||
             type == 'checkbox' ||
+            type == 'textarea' ||
             type == 'radio') &&
           't-translate-0'
         }`}

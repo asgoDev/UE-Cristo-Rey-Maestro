@@ -6,15 +6,16 @@ function Welcome() {
   return (
     <AppSectionLayout title={'Bienvenido'}>
       <p>
-        Acabas de entrar al portal Web de la{' '}
-        <strong>U. E. Cristo, Rey y Maestro</strong>.
+        Acabas de ingresar al portal Web de la{' '}
+        <strong>U.E. Colegio "Cristo, Rey y Maestro"</strong>.
       </p>
       <br />
       <p>
         En este sitio podras obtener la <strong>Planilla de Entrevista</strong>{' '}
-        para poder continuar con el proceso de seleccion de su representado solo
-        si ya pasó el proceso de selección. Por favor, abstenerse de llenar el
-        formulario si no ha sido seleccionado.
+        la cual deberá llenar correctamente siguiendo cada paso e imprimir por
+        ambos lados, la misma tendrá que consignar al colegio en la fecha
+        asignada. Por favor abstenerse de llenar el cuestionario si no ha sido
+        pre-seleccionado.
       </p>
       <br />
 

@@ -273,6 +273,58 @@ const schoolRegistrationFormConfig = [
           },
         ],
       },
+      {
+        fieldsetName: 'Otro Representante',
+        inputList: [
+          {
+            id: 'parentescoOtroRepresentante',
+            label: 'Indique el parentesco',
+            type: 'select',
+            options: [
+              'Abuelo/a',
+              'Tío/a',
+              'Hermano/a',
+              'Primo/a',
+              'Cuñado/a',
+              'Sobrino/a',
+              'Representante Legal',
+              'Otro',
+            ],
+          },
+          {
+            id: 'cedulaOtroRepresentante',
+            label: 'Cédula de Identidad',
+            type: 'number',
+          },
+          {
+            id: 'nombreOtroRepresentante',
+            label: 'Nombres y Apellidos',
+            type: 'text',
+          },
+          {
+            id: 'instruccionOtroRepresentante',
+            label: 'Grado de Instrucción',
+            type: 'select',
+            options: ['Primaria', 'Secundaria', 'Técnico', 'Universitario'],
+          },
+          {
+            id: 'telefonoOtroRepresentante',
+            label: 'Teléfono',
+            type: 'tel',
+          },
+          {
+            id: 'trabajoOtroRepresentante',
+            label: 'Lugar de Trabajo',
+            type: 'text',
+          },
+          {
+            id: 'tipoTrabajoOtroRepresentante',
+            label: 'Tipo',
+            type: 'select',
+            options: ['Privada', 'Pública', 'Independiente'],
+          },
+        ],
+      },
     ],
   },
   {
@@ -290,9 +342,8 @@ const schoolRegistrationFormConfig = [
           },
           {
             id: 'convivencia',
-            label: 'Con quién vive',
-            type: 'select',
-            options: ['Padres', 'Madre', 'Padre', 'Abuelos', 'Tíos', 'Otros'],
+            label: '¿Con quienes vive?',
+            type: 'text',
             required: true,
           },
           {
@@ -307,6 +358,13 @@ const schoolRegistrationFormConfig = [
             label: 'Tenencia',
             type: 'select',
             options: ['Propia', 'Alquilada', 'Al cuido', 'Pagando'],
+            required: true,
+          },
+          {
+            id: 'condicionesVivienda',
+            label: 'Condiciones de la Vivienda',
+            type: 'select',
+            options: ['Óptima', 'Regular', 'Deteriorada'],
             required: true,
           },
           {
@@ -336,7 +394,7 @@ const schoolRegistrationFormConfig = [
     title: '4.- Gastos Mensuales',
     config: [
       {
-        fieldsetName: 'Economía Familiar',
+        fieldsetName: 'Economía Familiar (escribir 0 si no aplica)',
         inputList: [
           {
             id: 'dependenciaEconomica',
@@ -355,49 +413,49 @@ const schoolRegistrationFormConfig = [
           },
           {
             id: 'alimentacion',
-            label: 'Presupuesto de Alimentación (Bs. D)',
+            label: 'Presupuesto de Alimentación (Bs.)',
             type: 'number',
             required: true,
           },
           {
             id: 'educacion',
-            label: 'Presupuesto de Educación (Bs. D)',
+            label: 'Presupuesto de Educación (Bs.)',
             type: 'number',
             required: true,
           },
           {
             id: 'renta',
-            label: 'Presupuesto de Renta (Bs. D)',
+            label: 'Presupuesto de Alquiler (Bs.)',
             type: 'number',
             required: true,
           },
           {
             id: 'luz',
-            label: 'Presupuesto de Luz (Bs. D)',
+            label: 'Presupuesto de Luz (Bs.)',
             type: 'number',
             required: true,
           },
           {
             id: 'agua',
-            label: 'Presupuesto de Agua (Bs. D)',
+            label: 'Presupuesto de Agua (Bs.)',
             type: 'number',
             required: true,
           },
           {
             id: 'medicina',
-            label: 'Presupuesto de Medicina (Bs. D)',
+            label: 'Presupuesto de Medicina (Bs.)',
             type: 'number',
             required: true,
           },
           {
             id: 'ingresos',
-            label: 'Total Ingresos (Bs. D)',
+            label: 'Total de ingresos mensuales (Bs.)',
             type: 'number',
             required: true,
           },
           {
             id: 'egresos',
-            label: 'Total Egresos (Bs. D)',
+            label: 'Total egresos mensuales (Bs.)',
             type: 'number',
             required: true,
           },
@@ -419,6 +477,7 @@ const schoolRegistrationFormConfig = [
 
             maxLength: 500,
             required: true,
+            type: 'textarea',
           },
         ],
       },
