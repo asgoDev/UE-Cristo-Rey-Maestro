@@ -9,6 +9,7 @@ import {
 } from '@react-pdf/renderer'
 
 import logo from '../assets/insignia cristo rey.png'
+import { newDate } from '../utils/newDate'
 
 // Estilos
 const styles = StyleSheet.create({
@@ -224,7 +225,10 @@ const PlanillaEntrevista = ({ data = {} }) => (
         <Fieldset title="Datos Personales">
           <Item label="Nombres" value={data.nombres} />
           <Item label="Apellidos" value={data.apellidos} />
-          <Item label="Fecha de nacimiento" value={data.fechaNacimiento} />
+          <Item
+            label="Fecha de nacimiento"
+            value={newDate().formatDate(data.fechaNacimiento)}
+          />
           <Item label="Edad" value={data.edad} />
           <Item label="Sexo" value={data.sexo} />
           <Item
@@ -257,7 +261,11 @@ const PlanillaEntrevista = ({ data = {} }) => (
             />
           )}
           <Item label="Informe médico" value={data.informeMedico} />
-          <Item label="Médico tratante" value={data.medicoTratante} />
+          {(data.discapacidad !== 'Ninguna' ||
+            data.alergico == 'Sí' ||
+            data.informeMedico == 'Sí') && (
+            <Item label="Médico tratante" value={data.medicoTratante} />
+          )}
           <Item
             label="Toma algún medicamento"
             value={data.tomaMedicamento || 'no'}
@@ -287,24 +295,50 @@ const PlanillaEntrevista = ({ data = {} }) => (
           <Item label="Lugar de trabajo" value={data.trabajoMadre || 'No'} />
           <Item label="Tipo" value={data.tipoTrabajoMadre || 'No aplica'} />
         </Fieldset>
-      </Section>
 
+        {(data.parentescoOtroRepresentante ||
+          data.cedulaOtroRepresentante ||
+          data.nombreOtroRepresentante) && (
+          <Fieldset title="Representante Legal">
+            <Item label="Parentesco" value={data.parentescoOtroRepresentante} />
+            <Item label="Cédula" value={data.cedulaOtroRepresentante} />
+            <Item label="Nombre" value={data.nombreOtroRepresentante} />
+            <Item
+              label="Grado de instrucción"
+              value={data.instruccionOtroRepresentante}
+            />
+            <Item label="Teléfono" value={data.telefonoOtroRepresentante} />
+            <Item
+              label="Lugar de trabajo"
+              value={data.trabajoOtroRepresentante || 'No'}
+            />
+            <Item
+              label="Tipo"
+              value={data.tipoTrabajoOtroRepresentante || 'No aplica'}
+            />
+          </Fieldset>
+        )}
+      </Section>
+    </PageTemplate>
+
+    <PageTemplate pageNumber={2}>
       {/* Información de Residencia */}
       <Section title="3. Información de Residencia">
         <Fieldset title="Datos de Vivienda">
           <Item label="Dirección" value={data.direccion} />
           <Item label="Con quién vive" value={data.convivencia} />
           <Item label="Tipo de vivienda" value={data.tipoVivienda} />
-          <Item label="Tenencia de vivienda" value={data.tenenciaVivienda} />
+          <Item label="Tenencia de la vivienda" value={data.tenenciaVivienda} />
+          <Item
+            label="Condiciones de la vivienda"
+            value={data.condicionesVivienda}
+          />
           <Text style={styles.text}>
             <Text style={styles.label}>Servicios Publicos: </Text>
             {servicesList(data.servicios)}
           </Text>
         </Fieldset>
       </Section>
-    </PageTemplate>
-
-    <PageTemplate pageNumber={2}>
       {/* Gastos Mensuales */}
       <Section title="4. Gastos Mensuales">
         <Fieldset title="Economía Familiar">
@@ -329,6 +363,38 @@ const PlanillaEntrevista = ({ data = {} }) => (
           <Item label="Razón de elección" value={data.razonEleccion} />
         </Fieldset>
       </Section>
+
+      <View
+        style={{
+          fontSize: '.8rem',
+          display: 'flex',
+          gap: 8,
+          textAlign: 'right',
+          position: 'absolute',
+          bottom: 130,
+          right: 50,
+        }}
+      >
+        <Text>C.I. del Representante:</Text>
+        <Text>__________________________________________________</Text>
+        <Text>Nombre y Apellido del Representante:</Text>
+        <Text>
+          {' '}
+          <Text>__________________________________________________</Text>
+        </Text>
+        <Text>Firma del Representante:</Text>
+        <Text>
+          {' '}
+          <Text>__________________________________________________</Text>
+        </Text>
+        {/* <View>
+          <Text>Pulgar izqquierdo del Representante:</Text>
+          <Text>Pulgar derecho del Representante:</Text>
+        </View> */}
+      </View>
+      <View style={{ position: 'absolute', bottom: 80, left: 50 }}>
+        <Text>{`Coro, ${newDate().todayLong()}`}</Text>
+      </View>
     </PageTemplate>
   </Document>
 )

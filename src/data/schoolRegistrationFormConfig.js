@@ -224,7 +224,7 @@ const schoolRegistrationFormConfig = [
           {
             id: 'telefonoPadre',
             label: 'Teléfono',
-            type: 'tel',
+            type: 'number',
             required: true,
           },
           { id: 'trabajoPadre', label: 'Lugar de Trabajo', type: 'text' },
@@ -261,7 +261,7 @@ const schoolRegistrationFormConfig = [
           {
             id: 'telefonoMadre',
             label: 'Teléfono',
-            type: 'tel',
+            type: 'number',
             required: true,
           },
           { id: 'trabajoMadre', label: 'Lugar de Trabajo', type: 'text' },
@@ -274,7 +274,8 @@ const schoolRegistrationFormConfig = [
         ],
       },
       {
-        fieldsetName: 'Otro Representante',
+        fieldsetName:
+          'Otro Representante (Cuando el representante no es uno de los padres)',
         inputList: [
           {
             id: 'parentescoOtroRepresentante',
@@ -310,7 +311,7 @@ const schoolRegistrationFormConfig = [
           {
             id: 'telefonoOtroRepresentante',
             label: 'Teléfono',
-            type: 'tel',
+            type: 'number',
           },
           {
             id: 'trabajoOtroRepresentante',
@@ -394,7 +395,7 @@ const schoolRegistrationFormConfig = [
     title: '4.- Gastos Mensuales',
     config: [
       {
-        fieldsetName: 'Economía Familiar (escribir 0 si no aplica)',
+        fieldsetName: 'Economía Familiar (escribir un cero <0> si no aplica)',
         inputList: [
           {
             id: 'dependenciaEconomica',

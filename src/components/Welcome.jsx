@@ -7,7 +7,7 @@ function Welcome() {
     <AppSectionLayout title={'Bienvenido'}>
       <p>
         Acabas de ingresar al portal Web de la{' '}
-        <strong>U.E. Colegio "Cristo, Rey y Maestro"</strong>.
+        <strong>U.E. Colegio &quot;Cristo, Rey y Maestro&quot;</strong>.
       </p>
       <br />
       <p>

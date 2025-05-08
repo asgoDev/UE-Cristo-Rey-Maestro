@@ -21,7 +21,7 @@ function Input() {
       id={id}
       name={id}
       className={`${styles()}}`}
-      type="text"
+      type={type}
       placeholder={label}
       value={value}
       onChange={inputControl}
