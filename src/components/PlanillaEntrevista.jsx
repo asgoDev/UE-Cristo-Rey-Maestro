@@ -280,16 +280,16 @@ const PlanillaEntrevista = ({ data = {} }) => (
       {/* Datos del Representante */}
       <Section title="2. Datos del Representante">
         <Fieldset title="Padre">
+          <Item label="Nombre y Apellido" value={data.nombrePadre} />
           <Item label="Cédula" value={data.cedulaPadre} />
-          <Item label="Nombre" value={data.nombrePadre} />
           <Item label="Grado de instrucción" value={data.instruccionPadre} />
           <Item label="Teléfono" value={data.telefonoPadre} />
           <Item label="Lugar de trabajo" value={data.trabajoPadre || 'No'} />
           <Item label="Tipo" value={data.tipoTrabajoPadre || 'No aplica'} />
         </Fieldset>
         <Fieldset title="Madre">
+          <Item label="Nombre y Apellido" value={data.nombreMadre} />
           <Item label="Cédula" value={data.cedulaMadre} />
-          <Item label="Nombre" value={data.nombreMadre} />
           <Item label="Grado de instrucción" value={data.instruccionMadre} />
           <Item label="Teléfono" value={data.telefonoMadre} />
           <Item label="Lugar de trabajo" value={data.trabajoMadre || 'No'} />
@@ -300,9 +300,12 @@ const PlanillaEntrevista = ({ data = {} }) => (
           data.cedulaOtroRepresentante ||
           data.nombreOtroRepresentante) && (
           <Fieldset title="Representante Legal">
+            <Item
+              label="Nombre y Apellido"
+              value={data.nombreOtroRepresentante}
+            />
             <Item label="Parentesco" value={data.parentescoOtroRepresentante} />
             <Item label="Cédula" value={data.cedulaOtroRepresentante} />
-            <Item label="Nombre" value={data.nombreOtroRepresentante} />
             <Item
               label="Grado de instrucción"
               value={data.instruccionOtroRepresentante}

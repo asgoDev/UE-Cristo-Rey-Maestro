@@ -203,15 +203,15 @@ const schoolRegistrationFormConfig = [
         fieldsetName: 'Padre',
         inputList: [
           {
-            id: 'cedulaPadre',
-            label: 'Cédula de Identidad',
-            type: 'number',
+            id: 'nombrePadre',
+            label: 'Nombre y Apellido',
+            type: 'text',
             required: true,
           },
           {
-            id: 'nombrePadre',
-            label: 'Nombres y Apellidos',
-            type: 'text',
+            id: 'cedulaPadre',
+            label: 'Cédula de Identidad',
+            type: 'number',
             required: true,
           },
           {
@@ -219,6 +219,12 @@ const schoolRegistrationFormConfig = [
             label: 'Grado de Instrucción',
             type: 'select',
             options: ['Primaria', 'Secundaria', 'Técnico', 'Universitario'],
+            required: true,
+          },
+          {
+            id: 'profesionPadre',
+            label: 'Profesión u Oficio',
+            type: 'text',
             required: true,
           },
           {
@@ -234,11 +240,27 @@ const schoolRegistrationFormConfig = [
             type: 'select',
             options: ['Privada', 'Pública', 'Independiente'],
           },
+          {
+            id: 'cargoPadre',
+            label: 'Cargo en la empresa/institución',
+            type: 'text',
+          },
+          {
+            id: 'salarioPadre',
+            label: 'Salario mensual (Bs.)',
+            type: 'number',
+          },
         ],
       },
       {
         fieldsetName: 'Madre',
         inputList: [
+          {
+            id: 'nombreMadre',
+            label: 'Nombre y Apellido',
+            type: 'text',
+            required: true,
+          },
           {
             id: 'cedulaMadre',
             label: 'Cédula de Identidad',
@@ -246,16 +268,16 @@ const schoolRegistrationFormConfig = [
             required: true,
           },
           {
-            id: 'nombreMadre',
-            label: 'Nombres y Apellidos',
-            type: 'text',
-            required: true,
-          },
-          {
             id: 'instruccionMadre',
             label: 'Grado de Instrucción',
             type: 'select',
             options: ['Primaria', 'Secundaria', 'Técnico', 'Universitario'],
+            required: true,
+          },
+          {
+            id: 'profesionMadre',
+            label: 'Profesión u Oficio',
+            type: 'text',
             required: true,
           },
           {
@@ -271,12 +293,27 @@ const schoolRegistrationFormConfig = [
             type: 'select',
             options: ['Privada', 'Pública', 'Independiente'],
           },
+          {
+            id: 'cargoMadre',
+            label: 'Cargo en la empresa/institución',
+            type: 'text',
+          },
+          {
+            id: 'salarioMadre',
+            label: 'Salario mensual (Bs.)',
+            type: 'number',
+          },
         ],
       },
       {
         fieldsetName:
           'Otro Representante (Cuando el representante no es uno de los padres)',
         inputList: [
+          {
+            id: 'nombreOtroRepresentante',
+            label: 'Nombre y Apellido',
+            type: 'text',
+          },
           {
             id: 'parentescoOtroRepresentante',
             label: 'Indique el parentesco',
@@ -292,21 +329,23 @@ const schoolRegistrationFormConfig = [
               'Otro',
             ],
           },
+
           {
             id: 'cedulaOtroRepresentante',
             label: 'Cédula de Identidad',
             type: 'number',
           },
           {
-            id: 'nombreOtroRepresentante',
-            label: 'Nombres y Apellidos',
-            type: 'text',
-          },
-          {
             id: 'instruccionOtroRepresentante',
             label: 'Grado de Instrucción',
             type: 'select',
             options: ['Primaria', 'Secundaria', 'Técnico', 'Universitario'],
+          },
+          {
+            id: 'profesionOtroRepresentante',
+            label: 'Profesión u Oficio',
+            type: 'text',
+            required: true,
           },
           {
             id: 'telefonoOtroRepresentante',
@@ -323,6 +362,16 @@ const schoolRegistrationFormConfig = [
             label: 'Tipo',
             type: 'select',
             options: ['Privada', 'Pública', 'Independiente'],
+          },
+          {
+            id: 'cargoOtroRepresentante',
+            label: 'Cargo en la empresa/institución',
+            type: 'text',
+          },
+          {
+            id: 'salarioOtroRepresentante',
+            label: 'Salario mensual (Bs.)',
+            type: 'number',
           },
         ],
       },
@@ -343,8 +392,9 @@ const schoolRegistrationFormConfig = [
           },
           {
             id: 'convivencia',
-            label: '¿Con quienes vive?',
-            type: 'text',
+            label:
+              '¿Con quienes vive? (Solo el parentesco en relación al estuadiante)',
+            type: 'textarea',
             required: true,
           },
           {
@@ -414,13 +464,13 @@ const schoolRegistrationFormConfig = [
           },
           {
             id: 'alimentacion',
-            label: 'Presupuesto de Alimentación (Bs.)',
+            label: 'Presupuesto de Alimentación mensual (Bs.)',
             type: 'number',
             required: true,
           },
           {
             id: 'educacion',
-            label: 'Presupuesto de Educación (Bs.)',
+            label: 'Presupuesto de Educación mensual (Bs.)',
             type: 'number',
             required: true,
           },
@@ -444,7 +494,7 @@ const schoolRegistrationFormConfig = [
           },
           {
             id: 'medicina',
-            label: 'Presupuesto de Medicina (Bs.)',
+            label: 'Presupuesto de Medicina mensual (Bs.)',
             type: 'number',
             required: true,
           },
@@ -456,7 +506,7 @@ const schoolRegistrationFormConfig = [
           },
           {
             id: 'egresos',
-            label: 'Total egresos mensuales (Bs.)',
+            label: 'Total egresos mensuales  (Bs.)',
             type: 'number',
             required: true,
           },
