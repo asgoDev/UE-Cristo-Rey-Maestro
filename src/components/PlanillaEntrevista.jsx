@@ -282,18 +282,40 @@ const PlanillaEntrevista = ({ data = {} }) => (
         <Fieldset title="Padre">
           <Item label="Nombre y Apellido" value={data.nombrePadre} />
           <Item label="Cédula" value={data.cedulaPadre} />
-          <Item label="Grado de instrucción" value={data.instruccionPadre} />
           <Item label="Teléfono" value={data.telefonoPadre} />
+          <Item label="Correo Electrónico" value={data.correoPadre} />
+          <Item label="Grado de instrucción" value={data.instruccionPadre} />
+          <Item label="Profesión" value={data.profesionPadre} />
           <Item label="Lugar de trabajo" value={data.trabajoPadre || 'No'} />
           <Item label="Tipo" value={data.tipoTrabajoPadre || 'No aplica'} />
+          <Item
+            label="Cargo"
+            value={data.cargoPadre || '_____________________'}
+          />
+          <Item
+            label="
+          Salario Mensual"
+            value={data.salarioPadre || '_____________'}
+          />
         </Fieldset>
         <Fieldset title="Madre">
           <Item label="Nombre y Apellido" value={data.nombreMadre} />
           <Item label="Cédula" value={data.cedulaMadre} />
-          <Item label="Grado de instrucción" value={data.instruccionMadre} />
           <Item label="Teléfono" value={data.telefonoMadre} />
+          <Item label="Correo Electrónico" value={data.correoMadre} />
+          <Item label="Grado de instrucción" value={data.instruccionMadre} />
+          <Item label="Profesión" value={data.profesionMadre} />
+
           <Item label="Lugar de trabajo" value={data.trabajoMadre || 'No'} />
           <Item label="Tipo" value={data.tipoTrabajoMadre || 'No aplica'} />
+          <Item
+            label="Cargo"
+            value={data.cargoMadre || '_____________________'}
+          />
+          <Item
+            label="Salario Mensual"
+            value={data.salarioMadre || '_____________'}
+          />
         </Fieldset>
 
         {(data.parentescoOtroRepresentante ||
@@ -306,11 +328,17 @@ const PlanillaEntrevista = ({ data = {} }) => (
             />
             <Item label="Parentesco" value={data.parentescoOtroRepresentante} />
             <Item label="Cédula" value={data.cedulaOtroRepresentante} />
+            <Item label="Teléfono" value={data.telefonoOtroRepresentante} />
+            <Item
+              label="Correo Electrónico"
+              value={data.correoOtroRepresentante}
+            />
             <Item
               label="Grado de instrucción"
               value={data.instruccionOtroRepresentante}
             />
-            <Item label="Teléfono" value={data.telefonoOtroRepresentante} />
+
+            <Item label="Profesión" value={data.profesionOtroRepresentante} />
             <Item
               label="Lugar de trabajo"
               value={data.trabajoOtroRepresentante || 'No'}
@@ -318,6 +346,14 @@ const PlanillaEntrevista = ({ data = {} }) => (
             <Item
               label="Tipo"
               value={data.tipoTrabajoOtroRepresentante || 'No aplica'}
+            />
+            <Item
+              label="Cargo"
+              value={data.cargoOtroRepresentante || '_____________________'}
+            />
+            <Item
+              label="Salario Mensual"
+              value={data.salarioOtroRepresentante || '_____________'}
             />
           </Fieldset>
         )}
@@ -369,31 +405,61 @@ const PlanillaEntrevista = ({ data = {} }) => (
 
       <View
         style={{
-          fontSize: '.8rem',
+          fontSize: '.7rem',
           display: 'flex',
           gap: 8,
           textAlign: 'right',
           position: 'absolute',
-          bottom: 130,
+          bottom: 95,
           right: 50,
         }}
       >
-        <Text>C.I. del Representante:</Text>
+        <Text style={{ fontWeight: 'bold', fontSize: '.8rem' }}>
+          Representante Legal
+        </Text>
+        <Text>C.I.:</Text>
         <Text>__________________________________________________</Text>
-        <Text>Nombre y Apellido del Representante:</Text>
+        <Text>Nombre y Apellido:</Text>
         <Text>
           {' '}
           <Text>__________________________________________________</Text>
         </Text>
-        <Text>Firma del Representante:</Text>
+        <Text>Firma:</Text>
         <Text>
           {' '}
           <Text>__________________________________________________</Text>
         </Text>
-        {/* <View>
-          <Text>Pulgar izqquierdo del Representante:</Text>
-          <Text>Pulgar derecho del Representante:</Text>
-        </View> */}
+        <View
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            gap: 1,
+            justifyContent: 'space-evenly',
+          }}
+        >
+          <Text
+            style={{
+              borderBottom: 1,
+              borderRight: 1,
+              borderColor: '#000',
+              height: '9rem',
+              paddingRight: 7,
+            }}
+          >
+            Pulgar izquierdo
+          </Text>
+          <Text
+            style={{
+              borderBottom: 1,
+              borderRight: 1,
+              borderColor: '#000',
+              height: '9rem',
+              paddingRight: 7,
+            }}
+          >
+            pulgar derecho
+          </Text>
+        </View>
       </View>
       <View style={{ position: 'absolute', bottom: 80, left: 50 }}>
         <Text>{`Coro, ${newDate().todayLong()}`}</Text>

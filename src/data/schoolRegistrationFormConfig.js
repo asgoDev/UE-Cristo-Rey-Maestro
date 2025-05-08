@@ -233,6 +233,12 @@ const schoolRegistrationFormConfig = [
             type: 'number',
             required: true,
           },
+          {
+            id: 'correoPadre',
+            label: 'Correo Electrónico',
+            type: 'text',
+            required: true,
+          },
           { id: 'trabajoPadre', label: 'Lugar de Trabajo', type: 'text' },
           {
             id: 'tipoTrabajoPadre',
@@ -284,6 +290,12 @@ const schoolRegistrationFormConfig = [
             id: 'telefonoMadre',
             label: 'Teléfono',
             type: 'number',
+            required: true,
+          },
+          {
+            id: 'correoMadre',
+            label: 'Correo Electrónico',
+            type: 'text',
             required: true,
           },
           { id: 'trabajoMadre', label: 'Lugar de Trabajo', type: 'text' },
@@ -345,12 +357,16 @@ const schoolRegistrationFormConfig = [
             id: 'profesionOtroRepresentante',
             label: 'Profesión u Oficio',
             type: 'text',
-            required: true,
           },
           {
             id: 'telefonoOtroRepresentante',
             label: 'Teléfono',
             type: 'number',
+          },
+          {
+            id: 'correoOtroRepresentante',
+            label: 'Correo Electrónico',
+            type: 'text',
           },
           {
             id: 'trabajoOtroRepresentante',
