@@ -94,6 +94,7 @@ select:focus {
 
 .invalid-input {
   border-color: var(--denied-color);
+  border-width: 2px;
   /* box-shadow: 0 0 3px -1px var(--denied-color); */
 }
 

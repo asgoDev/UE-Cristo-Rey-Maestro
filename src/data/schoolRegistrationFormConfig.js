@@ -218,7 +218,7 @@ const schoolRegistrationFormConfig = [
             id: 'instruccionPadre',
             label: 'Grado de Instrucción',
             type: 'select',
-            options: ['Primaria', 'Secundaria', 'Técnico', 'Universitario'],
+            options: ['Primaria', 'Bachiller', 'Técnico', 'Universitario'],
             required: true,
           },
           {
@@ -277,7 +277,7 @@ const schoolRegistrationFormConfig = [
             id: 'instruccionMadre',
             label: 'Grado de Instrucción',
             type: 'select',
-            options: ['Primaria', 'Secundaria', 'Técnico', 'Universitario'],
+            options: ['Primaria', 'Bachiller', 'Técnico', 'Universitario'],
             required: true,
           },
           {
@@ -337,7 +337,7 @@ const schoolRegistrationFormConfig = [
               'Primo/a',
               'Cuñado/a',
               'Sobrino/a',
-              'Representante Legal',
+              'Otro Representante',
               'Otro',
             ],
           },
@@ -351,7 +351,7 @@ const schoolRegistrationFormConfig = [
             id: 'instruccionOtroRepresentante',
             label: 'Grado de Instrucción',
             type: 'select',
-            options: ['Primaria', 'Secundaria', 'Técnico', 'Universitario'],
+            options: ['Primaria', 'Bachiller', 'Técnico', 'Universitario'],
           },
           {
             id: 'profesionOtroRepresentante',
@@ -409,7 +409,7 @@ const schoolRegistrationFormConfig = [
           {
             id: 'convivencia',
             label:
-              '¿Con quienes vive? (Solo el parentesco en relación al estuadiante)',
+              '¿Con quienes vive? (Solo el parentesco en relación al estudiante)',
             type: 'textarea',
             required: true,
           },

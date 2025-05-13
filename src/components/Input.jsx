@@ -20,7 +20,7 @@ function Input() {
     <input
       id={id}
       name={id}
-      className={`${styles()}}`}
+      className={`${styles()}`}
       type={type}
       placeholder={label}
       value={value}

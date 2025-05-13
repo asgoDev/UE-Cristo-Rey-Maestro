@@ -321,7 +321,7 @@ const PlanillaEntrevista = ({ data = {} }) => (
         {(data.parentescoOtroRepresentante ||
           data.cedulaOtroRepresentante ||
           data.nombreOtroRepresentante) && (
-          <Fieldset title="Representante Legal">
+          <Fieldset title="Otro Representante">
             <Item
               label="Nombre y Apellido"
               value={data.nombreOtroRepresentante}
@@ -408,6 +408,33 @@ const PlanillaEntrevista = ({ data = {} }) => (
           fontSize: '.7rem',
           display: 'flex',
           gap: 8,
+          textAlign: 'left',
+          position: 'absolute',
+          bottom: 192,
+          left: 50,
+        }}
+      >
+        <Text style={{ fontWeight: 'bold', fontSize: '.8rem' }}>
+          Entrevistador
+        </Text>
+        <Text>Nombre y Apellido:</Text>
+        <Text>__________________________________________________</Text>
+        <Text>Cargo:</Text>
+        <Text>
+          {' '}
+          <Text>__________________________________________________</Text>
+        </Text>
+        <Text>Firma:</Text>
+        <Text>
+          {' '}
+          <Text>__________________________________________________</Text>
+        </Text>
+      </View>
+      <View
+        style={{
+          fontSize: '.7rem',
+          display: 'flex',
+          gap: 8,
           textAlign: 'right',
           position: 'absolute',
           bottom: 95,
@@ -415,7 +442,7 @@ const PlanillaEntrevista = ({ data = {} }) => (
         }}
       >
         <Text style={{ fontWeight: 'bold', fontSize: '.8rem' }}>
-          Representante Legal
+          Representante
         </Text>
         <Text>C.I.:</Text>
         <Text>__________________________________________________</Text>
