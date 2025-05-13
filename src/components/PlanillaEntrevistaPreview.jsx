@@ -9,10 +9,17 @@ function PlanillaEntrevistaPreview() {
   return (
     <AppSectionLayout title={'Planilla de Entrevista'}>
       <p>
-        Esta es la planilla debe ser impresa en una sola hoja por ambas caras.
+        Su planilla de entrevista ha sido generada exitosamente. A continuación,
+        haga click en el boton de abajo para descargarla.
       </p>
       <br />
-      <PDFViewer style={{ width: '100%', height: '90vh' }}>
+      <p>
+        <strong>
+          Esta planilla debe ser impresa en una sola hoja por ambas caras.
+        </strong>
+      </p>
+      <br />
+      <PDFViewer className="pdfbox" style={{ width: '100%', height: '90vh' }}>
         <PlanillaEntrevista data={formData} />
       </PDFViewer>
       <DownloadPdf data={formData} />
